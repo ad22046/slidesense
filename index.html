@@ -1695,12 +1695,13 @@
         message: `Landslide alert: ${severity} risk detected (Score: ${riskScore}/100). Risk factors: ${riskFactors.join(', ')}. Please take precautions immediately.`
         };
 
-        fetch("/api/alert", {
+        fetch("https://slidesense.vercel.app/api/alert", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            "x-alert-token": "YOUR_SECRET_KEY"
+        "Content-Type": "application/json",
+        "x-alert-token": "secret_12345"
         },
+
         body: JSON.stringify(alertData)
         })
         .then(res => res.json())
